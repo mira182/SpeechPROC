@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package feec.cz.brno.speechproc.gui;
+package feec.cz.brno.speechproc;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -19,17 +17,23 @@ import javafx.stage.Stage;
  * @author mira
  */
 public class Main extends Application {
-
+    
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent parent = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
-        Scene scene = new Scene(parent);
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/MainWindow.fxml"));
+    
+        Scene scene = new Scene(root, 1024, 720);
+    
+        stage.setTitle("Speech PROC");
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
-
+    
 }
