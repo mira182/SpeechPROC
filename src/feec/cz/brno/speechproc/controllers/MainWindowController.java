@@ -5,6 +5,7 @@
  */
 package feec.cz.brno.speechproc.controllers;
 
+import feec.cz.brno.speechproc.calc.PraatFunctions;
 import java.io.File;
 import java.util.List;
 import javafx.fxml.FXML;
@@ -62,6 +63,22 @@ public class MainWindowController {
             list.forEach(file -> {
                 voiceFileList.getItems().add(file);
             });
+        }
+    }
+    
+    @FXML
+    protected void runPraatScript() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open sound file");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("Praat script", "*.praat")
+        );
+
+        File praatScript = fileChooser.showOpenDialog(null);
+        if (praatScript != null) {
+            PraatFunctions.executeCommand(PraatFunctions.command);
         }
     }
     

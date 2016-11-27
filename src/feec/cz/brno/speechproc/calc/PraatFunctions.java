@@ -6,15 +6,20 @@
 package feec.cz.brno.speechproc.calc;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 
 /**
  *
  * @author mira
  */
-public class PraatFunction {
+public class PraatFunctions {
     
-    public final static String command = "/usr/bin/praat data/hello.wav --run \"my script.praat\"";
+    private File soundFile;
+    private File praatScript;
+    
+    private String fileName = PraatFunctions.class.getResource("../resources/get_formants.praat").getPath();
+    public final static String command = "/usr/bin/praat Plosive1.wav --run \"get_formants.praat\"";
     
     public static String executeCommand(String command) {
 

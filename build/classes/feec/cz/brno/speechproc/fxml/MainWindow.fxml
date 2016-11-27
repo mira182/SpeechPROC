@@ -6,11 +6,9 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -23,7 +21,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#addVoiceFile" text="Add file" />
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -31,6 +30,11 @@
                     <MenuItem mnemonicParsing="false" text="Delete" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Praat">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#runPraatScript" text="Run praat script..." />
+                    </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" text="About" />
@@ -40,7 +44,7 @@
             </MenuBar>
             <ToolBar prefHeight="40.0" prefWidth="200.0">
               <items>
-                <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" text="Praat" />
               </items>
             </ToolBar>
          </children>
@@ -50,15 +54,7 @@
       <HBox prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
    </center>
    <left>
       <TitledPane collapsible="false" prefHeight="630.0" prefWidth="200.0" text="Voice files" BorderPane.alignment="CENTER">
@@ -68,7 +64,7 @@
                   <ListView fx:id="voiceFileList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="320.0" prefWidth="218.0" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER_RIGHT" fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="46.0" prefWidth="255.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleAddVoiceFile" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#addVoiceFile" text="Add" />
                         <Button mnemonicParsing="false" text="Delete" />
                      </children>
                      <padding>
@@ -78,6 +74,9 @@
                </children>
             </VBox>
          </content>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </TitledPane>
    </left>
 </BorderPane>
