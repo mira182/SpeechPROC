@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/controller/MenuController.java</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/gui/fxml/MenuAndToolBars.fxml</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/gui/fxml/MainWindow.fxml</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/gui/fxml/OpenFilesLeftPanel.fxml</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/controller/OpenFilesLeftPanelController.java</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/gui/Main.java</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/calc/PraatFunction.java</file>
-            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/controller/MainWindowController.java</file>
+            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/calc/PraatFunctions.java</file>
+            <file>file:/home/mira/NetBeansProjects/SpeechPROC/src/feec/cz/brno/speechproc/controllers/MainWindowController.java</file>
         </group>
     </open-files>
 </project-private>

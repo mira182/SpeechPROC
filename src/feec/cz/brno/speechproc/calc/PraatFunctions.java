@@ -8,25 +8,48 @@ package feec.cz.brno.speechproc.calc;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  *
  * @author mira
  */
 public class PraatFunctions {
+    Logger logger = LogManager.getLogger(PraatFunctions.class);
     
-    private File soundFile;
     private File praatScript;
+    private List<String> parameters;
     
-    private String fileName = PraatFunctions.class.getResource("../resources/get_formants.praat").getPath();
-    public final static String command = "/usr/bin/praat Plosive1.wav --run \"get_formants.praat\"";
+//    public final static String command = "/usr/bin/praat \"formants.praat\" Plosive1.wav formants.csv";
+
+    public PraatFunctions(File praatScript, List<String> parameters) {
+        this.praatScript = praatScript;
+        this.parameters = parameters;
+    }
     
-    public static String executeCommand(String command) {
+    private String buildCommand() {
+        StringBuilder command = new StringBuilder();
+        
+        command.append("praat --run ");
+        command.append(praatScript.getAbsolutePath()).append(" ");
+        parameters.forEach(param -> command.append(param).append(" "));
+        
+        return command.toString();
+    }
+    
+    
+    public String executeCommand() {
 
 		StringBuilder output = new StringBuilder();
+        String command = buildCommand();
+//String command = "pwd";
 
 		Process p;
 		try {
+            logger.debug("Executing command: {}", command);
 			p = Runtime.getRuntime().exec(command);
 			p.waitFor();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -35,8 +58,8 @@ public class PraatFunctions {
 			while ((line = reader.readLine())!= null) {
 				output.append(line).append(System.getProperty("line.separator"));
 			}
-
 		} catch (Exception e) {
+            logger.error("Error during executing praat command", e);
 			e.printStackTrace();
 		}
 
